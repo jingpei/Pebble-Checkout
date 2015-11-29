@@ -1,0 +1,22 @@
+<div class="row checkout-steps">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="col-sm-4">
+      <div class="checkout-step step-complete" ng-if="state === 'shipping'"><i class="fa fa-pencil"></i></div>
+      <div class="checkout-step step-complete" ng-if="state !== 'shipping'"><i class="fa fa-check"></i></div>
+      <h4>Shipping Info</h4>
+    </div>
+    <div class="col-sm-4">
+      <div class="checkout-step step-complete" ng-if="state === 'billing'"><i class="fa fa-pencil"></i></div>
+      <div class="checkout-step" ng-if="state === 'shipping'"><h4>2</h4></div>
+      <div class="checkout-step step-complete" ng-if="state === 'orderSummary'"><i class="fa fa-check"></i></div>
+      <h4>Add Credit Card</h4>
+    </div>
+    <div class="col-sm-4">
+      <div class="checkout-step step-complete" ng-if="state === 'orderSummary'"><i class="fa fa-check"></i></div>
+      <div class="checkout-step" ng-if="state !== 'orderSummary'"><h4>3</h4></div>
+      <h4>Order Complete</h4>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>

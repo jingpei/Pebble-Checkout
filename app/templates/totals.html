@@ -1,0 +1,24 @@
+<div class="total">
+  <table class="table">
+    <tr>
+      <td>DISCOUNT</td>
+      <td>(${{ total.discount }})</td>
+    </tr>
+    <tr>
+      <td>SUB TOTAL</td>
+      <td>${{ total.subtotal }}</td>
+    </tr>
+    <tr>
+      <td>SALES TAX</td>
+      <td>${{ total.tax }}</td>
+    </tr>
+    <tr>
+      <td>SHIPPING</td>
+      <td ng-if="user.shipMethod.value == 0">FREE</td>
+      <td ng-if="user.shipMethod.value != 0">${{ user.shipMethod.value }}</td>
+    </tr>
+    <tr>
+      <td><strong>TOTAL</strong></td>
+      <td><strong>${{ toFixed(parseFloat(total.subtotal) + parseFloat(total.tax) + parseFloat(user.shipMethod.value) - parseFloat(total.discount)) }}</strong></td>
+  </table>  
+</div>
