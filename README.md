@@ -50,7 +50,7 @@ python -m SimpleHTTPServer [port]
 - Gives a finishing touch on UX to buttons and other custom messaging to users
 
 ## Design-Notes
-- Maintained the general layout of the page while decluttering the appearance by making form fields, buttons, and extra messaging visually consistent in styling and and positioning
+- Maintained the general layout of the page while decluttering the appearance by making form fields, buttons, and extra messaging visually consistent in styling and positioning
 - Added checkout progress feature so users know exactly where in the checkout process they are
 - Kept a few elements of whimsy in the button hover interactions--redesigned buttons to be either flat/rounded for greater visual consistency
 - Decluttered the messaging regarding returns/shipping by bringing out the main messaging as a group at page end
