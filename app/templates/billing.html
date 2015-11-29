@@ -1,0 +1,85 @@
+<ng-include src="'./app/templates/checkoutProgress.html'"></ng-include>
+<div class="col-md-2"></div>
+<div class="row col-sm-4">
+  <div class="user-summary col-sm-12">
+    <h3 class="col-sm-12">1. SHIPPING INFORMATION (<a href="/checkout"> EDIT </a>)</h3>
+    <div class="user-checkout-info col-sm-12">
+      <label class="control-label">Country:</label>
+      <div class="user-info-single">{{ user.country }}</div>
+    </div>
+    <div class="user-checkout-info col-sm-12">
+      <label class="control-label">Name:</label>
+      <div class="user-info-single">{{ user.name }}</div>
+    </div>
+    <div class="user-checkout-info col-sm-12">
+      <label class="control-label">Address Line 1:</label>
+      <div class="user-info-single">{{ user.address1 }}</div>
+    </div>
+    <div class="user-checkout-info col-sm-12">
+      <label class="control-label">Address Line 2:</label>
+      <div class="user-info-single">{{ user.address2 }}</div>
+    </div>
+    <div class="user-checkout-info col-sm-12">
+      <label class="control-label">City:</label>
+      <div class="user-info-single">{{ user.city }}</div>
+    </div>
+    <div class="user-checkout-info col-sm-12">
+      <label class="control-label">Zip Code:</label>
+      <div class="user-info-single">{{ user.zipcode }}</div>
+    </div>
+    <div class="user-checkout-info col-sm-12">
+      <label class="control-label">State:</label>
+      <div class="user-info-single">{{ user.state }}</div>
+    </div>
+    <div class="user-checkout-info col-sm-12">
+      <label class="control-label">Email Address:</label>
+      <div class="user-info-single">{{ user.email }}</div>
+    </div>
+    <div class="user-checkout-info col-sm-12">
+      <label class="control-label">Phone Number:</label>
+      <div class="user-info-single">{{ user.phone }}</div>
+    </div>
+    <div class="user-checkout-info col-sm-12">
+      <label class="control-label"><h3>SHIPPING METHOD:</h3></label>
+      <div class="user-info-single">{{ user.shipMethod.type }}</div>
+    </div>
+  </div>
+  <form class="cc-form form-horizontal col-sm-12" validate>
+    <h3>2. Add Credit Card</h3>
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="cc-number">CARD</label>
+      <div class="col-sm-8"><input type="text" pattern="[0-9]{13,16}" class="form-control" id="cc-number" placeholder="Credit Card #" ng-model="card.cardNumber"></div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="cc-expiration">EXPIRATION</label>
+      <div class="col-sm-8"><input type="text" pattern="\d{1,2}/\d{4}" class="form-control" id="cc-expiration" placeholder="MM/YYYY" ng-model="card.expiration"></div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4" for="cc-cvc">CVC CODE</label>
+      <div class="col-sm-8"><input type="text" class="form-control" id="cc-cvc" placeholder="CVC" ng-model="card.cvc"></div>
+    </div>
+    <button class="btn btn-default hvr-bounce-to-right col-sm-1" ng-click="completeOrder()">Place Order<i class="fa fa-hand-o-up"></i></button>
+    <div class="clearfix"></div>
+  </form>
+</div>
+<div class="summary col-sm-4">
+  <h3>SUMMARY</h3>
+  <div class="cart-items">
+    <div class="cart-single row" ng-repeat="item in items">
+      <img class="assetImg" src="{{ item.assetUrl }}"/>
+      <div class="itemInfo">
+        <h4><b>{{ item.model }} {{ item.color }}</b></h4>
+        <h4><i>{{ item.shipTime }}</i></h4>
+        <h4>${{ item.price }}</h4>
+        <h4>Quantity: {{ item.qty }}</h4>
+        <div class="addSubtract row">
+          <div class="btn btn-default hvr-radial-out col-sm-6" ng-click="changeQty(1)"><i class="fa fa-plus"></i></div>
+          <div class="btn btn-default hvr-radial-out col-sm-6" ng-click="changeQty(-1)"><i class="fa fa-minus"></i></div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <ng-include src="'./app/templates/totals.html'"></ng-include>
+</div>
+<div class="col-sm-1"></div>

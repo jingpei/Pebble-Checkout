@@ -1,0 +1,26 @@
+<ng-include src="'./app/templates/checkoutProgress.html'"></ng-include>
+<div class="col-md-2"></div>
+<div class="row col-sm-4">
+  <div class="order-summary col-sm-12">
+    <h3 class="col-sm-12">Order Complete!</h3>
+    <h4>Your order number is #<span>{{ order }}</span></h4>
+    <h4>Please save this order number to get updates.</h4>
+  </div>
+</div>
+<div class="summary col-sm-4">
+  <h3>ORDER SUMMARY</h3>
+  <div class="cart-items">
+    <div class="cart-single row" ng-repeat="item in items">
+      <img class="assetImg" src="{{ item.assetUrl }}"/>
+      <div class="itemInfo">
+        <h4><b>{{ item.model }} {{ item.color }}</b></h4>
+        <h4><i>{{ item.shipTime }}</i></h4>
+        <h4>${{ item.price }}</h4>
+        <h4>Quantity: {{ item.qty }}</h4>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <ng-include src="'./app/templates/totals.html'"></ng-include>
+</div>
+<div class="col-sm-1"></div>
